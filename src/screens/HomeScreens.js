@@ -115,6 +115,12 @@ const HomeScreens = ({navigation}) => {
                 title={item.title}
                 subTitle={item.subtitle}
                 isFree={item.isFree}
+                onPress={() =>
+                  navigation.navigate('GameDetails', {
+                    title: item.title,
+                    id: item.id,
+                  })
+                }
               />
             ))}
           {gameTab == 2 &&
@@ -126,6 +132,12 @@ const HomeScreens = ({navigation}) => {
                 subTitle={item.subtitle}
                 price={item.price}
                 isFree={item.isFree}
+                onPress={() =>
+                  navigation.navigate('GameDetails', {
+                    title: item.title,
+                    id: item.id,
+                  })
+                }
               />
             ))}
         </View>

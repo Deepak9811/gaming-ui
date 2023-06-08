@@ -10,6 +10,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import SettingScreen from '../screens/SettingScreen';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import TabNavigator from './TabNavigator';
 
 const AppStack = () => {
   return (
@@ -24,7 +25,7 @@ const AppStack = () => {
       }}>
       <Drawer.Screen
         name="Home"
-        component={HomeScreens}
+        component={TabNavigator}
         options={{
           drawerIcon: ({color}) => (
             <Ionicons name="home-outline" size={25} color={color} />

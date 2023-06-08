@@ -2,7 +2,14 @@ import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {windowWidth} from '../utils/Dimensions';
 
-export default function ListItem({photo, title, subTitle, isFree, price}) {
+export default function ListItem({
+  photo,
+  title,
+  subTitle,
+  isFree,
+  price,
+  onPress,
+}) {
   return (
     <View
       style={{
@@ -34,6 +41,7 @@ export default function ListItem({photo, title, subTitle, isFree, price}) {
         </View>
       </View>
       <TouchableOpacity
+        onPress={onPress}
         style={{
           backgroundColor: '#0aada8',
           padding: 10,
