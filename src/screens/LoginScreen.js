@@ -1,10 +1,142 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import FacebookSVG from '../assets/images/misc/facebook.svg';
+import GoogleSVG from '../assets/images/misc/google.svg';
+import LoginSVG from '../assets/images/misc/login.svg';
+import TwitterSVG from '../assets/images/misc/twitter.svg';
 
-export default function LoginScreen() {
+import Ionicons from 'react-native-vector-icons/dist/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
+import CustomButton from '../components/CustomButton';
+import InputField from '../components/InputField';
+
+const LoginScreen = ({navigation}) => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>LoginScreen</Text>
-    </View>
+    <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}>
+        <View style={{paddingHorizontal: 25}}>
+          <View style={{alignItems: 'center'}}>
+            <LoginSVG
+              height={300}
+              width={300}
+              style={{transform: [{rotate: '-5deg'}]}}
+            />
+          </View>
+          <View style={{}}>
+            <Text
+              style={{
+                fontSize: 28,
+                fontWeight: '500',
+                color: '#333',
+                marginBottom: 30,
+              }}>
+              Login
+            </Text>
+
+            <InputField
+              label={'Email ID'}
+              icon={
+                <MaterialIcons
+                  name="alternate-email"
+                  size={20}
+                  color="#666"
+                  style={{marginRight: 5}}
+                />
+              }
+              keyboardType={'email-address'}
+            />
+
+            <InputField
+              label={'Password'}
+              icon={
+                <Ionicons
+                  name="ios-lock-closed-outline"
+                  size={20}
+                  color="#666"
+                  style={{marginRight: 5}}
+                />
+              }
+              inputType="password"
+              fieldButtonLabel={'Forgot?'}
+              fieldButtonFunction={() => {}}
+            />
+
+            <CustomButton label="Login" onPress={() => {}} />
+
+            <Text
+              style={{textAlign: 'center', color: '#666', marginBottom: 30}}>
+              Or, login with...
+            </Text>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginBottom: 30,
+              }}>
+              <TouchableOpacity
+                style={{
+                  borderColor: '#ddd',
+                  borderWidth: 2,
+                  borderRadius: 10,
+                  paddingHorizontal: 30,
+                  paddingVertical: 10,
+                }}>
+                <GoogleSVG height={24} width={24} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  borderColor: '#ddd',
+                  borderWidth: 2,
+                  borderRadius: 10,
+                  paddingHorizontal: 30,
+                  paddingVertical: 10,
+                }}>
+                <FacebookSVG height={24} width={24} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  borderColor: '#ddd',
+                  borderWidth: 2,
+                  borderRadius: 10,
+                  paddingHorizontal: 30,
+                  paddingVertical: 10,
+                }}>
+                <TwitterSVG height={24} width={24} />
+              </TouchableOpacity>
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                marginBottom: 30,
+              }}>
+              <Text>New to the app?</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Register');
+                }}>
+                <Text style={{color: '#AD40AF', fontWeight: '700'}}>
+                  {' '}
+                  Register
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
-}
+};
+
+export default LoginScreen;

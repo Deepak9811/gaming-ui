@@ -25,7 +25,7 @@ const OnboardingScreen = ({navigation}) => {
             fontSize: 30,
             fontWeight: 'bold',
             color: '#20315f',
-            fontFamily: 'Inter-Bold',
+            fontWeight: '500',
           }}>
           GAMEON
         </Text>
@@ -54,7 +54,7 @@ const OnboardingScreen = ({navigation}) => {
             fontWeight: 'bold',
             fontSize: 18,
             color: '#fff',
-            fontFamily: 'Roboto-mediumItalic',
+            fontWeight: '500',
           }}>
           Let's Begin
         </Text>

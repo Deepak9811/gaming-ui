@@ -41,9 +41,7 @@ const HomeScreens = ({navigation}) => {
             justifyContent: 'space-between',
             marginBottom: 20,
           }}>
-          <Text style={{fontSize: 18, fontFamily: 'Roboto-Medium'}}>
-            Hello John Doe
-          </Text>
+          <Text style={{fontSize: 18, fontWeight: '500'}}>Hello John Doe</Text>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <ImageBackground
               source={require('../assets/images/user-profile.jpg')}
@@ -76,9 +74,7 @@ const HomeScreens = ({navigation}) => {
             justifyContent: 'space-between',
             marginVertical: 15,
           }}>
-          <Text style={{fontSize: 18, fontFamily: 'Roboto-Medium'}}>
-            Upcoming Games
-          </Text>
+          <Text style={{fontSize: 18, fontWeight: '500'}}>Upcoming Games</Text>
           <TouchableOpacity onPress={() => {}}>
             <Text style={{color: '#0aada8'}}>See all</Text>
           </TouchableOpacity>
