@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   ImageBackground,
   SafeAreaView,
@@ -15,10 +15,12 @@ import Feather from 'react-native-vector-icons/dist/Feather';
 import BannerSlider from '../components/BannerSlider';
 import CustomSwitch from '../components/CustomSwitch';
 import ListItem from '../components/ListItem';
+import {AuthContext} from '../context/AuthContext';
 import {freeGames, paidGames, sliderData} from '../model/data';
 import {windowWidth} from '../utils/Dimensions';
 
 const HomeScreens = ({navigation}) => {
+  const {userInfo} = useContext(AuthContext);
   const [gameTab, setGameTab] = useState(1);
   const renderBanner = ({item, index}) => {
     return <BannerSlider data={item} />;
@@ -41,7 +43,10 @@ const HomeScreens = ({navigation}) => {
             justifyContent: 'space-between',
             marginBottom: 20,
           }}>
-          <Text style={{fontSize: 18, fontWeight: '500'}}>Hello John Doe</Text>
+          <Text style={{fontSize: 18, fontWeight: '500'}}>
+            Hello {userInfo.data.displayName}
+            {/* John Doe */}
+          </Text>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <ImageBackground
               source={require('../assets/images/user-profile.jpg')}

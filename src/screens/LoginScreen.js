@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   ScrollView,
   Text,
@@ -19,6 +19,8 @@ import InputField from '../components/InputField';
 import {AuthContext} from '../context/AuthContext';
 
 const LoginScreen = ({navigation}) => {
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const {login} = useContext(AuthContext);
   return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
@@ -55,6 +57,8 @@ const LoginScreen = ({navigation}) => {
                 />
               }
               keyboardType={'email-address'}
+              value={email}
+              onChangeText={text => setEmail(text)}
             />
 
             <InputField
@@ -70,12 +74,14 @@ const LoginScreen = ({navigation}) => {
               inputType="password"
               fieldButtonLabel={'Forgot?'}
               fieldButtonFunction={() => {}}
+              value={password}
+              onChangeText={text => setPassword(text)}
             />
 
             <CustomButton
               label="Login"
               onPress={() => {
-                login();
+                login(email, password);
               }}
             />
 
