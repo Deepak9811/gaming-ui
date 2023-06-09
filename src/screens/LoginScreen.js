@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   ScrollView,
   Text,
@@ -16,8 +16,10 @@ import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 import CustomButton from '../components/CustomButton';
 import InputField from '../components/InputField';
+import {AuthContext} from '../context/AuthContext';
 
 const LoginScreen = ({navigation}) => {
+  const {login} = useContext(AuthContext);
   return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
       <ScrollView
@@ -70,7 +72,12 @@ const LoginScreen = ({navigation}) => {
               fieldButtonFunction={() => {}}
             />
 
-            <CustomButton label="Login" onPress={() => {}} />
+            <CustomButton
+              label="Login"
+              onPress={() => {
+                login();
+              }}
+            />
 
             <Text
               style={{textAlign: 'center', color: '#666', marginBottom: 30}}>

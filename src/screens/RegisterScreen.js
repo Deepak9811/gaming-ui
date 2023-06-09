@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   ScrollView,
   Text,
@@ -17,7 +17,12 @@ import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 import CustomButton from '../components/CustomButton';
 import InputField from '../components/InputField';
 
+import DatePicker from 'react-native-date-picker';
+
 const RegisterScreen = ({navigation}) => {
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
+  const [dobLabel, setDobLabel] = useState('Date of Birth');
   return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
       <ScrollView
@@ -133,7 +138,7 @@ const RegisterScreen = ({navigation}) => {
             inputType="password"
           />
 
-          <InputField
+          {/* <InputField
             label={'Date of Birth'}
             icon={
               <Ionicons
@@ -144,6 +149,44 @@ const RegisterScreen = ({navigation}) => {
               />
             }
             inputType="password"
+          /> */}
+
+          <View
+            style={{
+              flexDirection: 'row',
+              borderBottomWidth: 1,
+              borderBottomColor: '#ccc',
+              paddingBottom: 8,
+              marginBottom: 30,
+            }}>
+            <Ionicons
+              name="calendar-outline"
+              size={20}
+              color="#666"
+              style={{marginRight: 5}}
+            />
+            <TouchableOpacity onPress={() => setOpen(true)}>
+              <Text style={{color: '#666', marginLeft: 5, marginTop: 5}}>
+                {dobLabel}
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <DatePicker
+            modal
+            open={open}
+            date={date}
+            mode="date"
+            maximumDate={new Date('2005-01-01')}
+            minimumDate={new Date('1980-01-01')}
+            onConfirm={date => {
+              setOpen(false);
+              setDate(date);
+              setDobLabel(date.toDateString());
+            }}
+            onCancel={() => {
+              setOpen(false);
+            }}
           />
 
           <CustomButton label={'Register'} onPress={() => {}} />

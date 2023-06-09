@@ -24,15 +24,12 @@ export default function ListItem({
           style={{width: 55, height: 55, borderRadius: 10, marginRight: 8}}
         />
         <View style={{width: windowWidth - 220}}>
-          <Text
-            style={{color: '#333', fontFamily: 'Roboto-Medium', fontSize: 14}}>
-            {subTitle}
-          </Text>
+          <Text style={{color: '#333', fontSize: 14}}>{subTitle}</Text>
           <Text
             numberOfLines={1}
             style={{
               color: '#333',
-              fontFamily: 'Roboto-Medium',
+              // fontFamily: 'Roboto-Medium',
               fontSize: 14,
               textTransform: 'uppercase',
             }}>
@@ -52,7 +49,7 @@ export default function ListItem({
           style={{
             color: '#fff',
             textAlign: 'center',
-            fontFamily: 'Roboto-Medium',
+            // fontFamily: 'Roboto-Medium',
             fontSize: 14,
           }}>
           {isFree == 'Yes' && 'Play'}
